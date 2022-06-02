@@ -1,0 +1,46 @@
+.main {
+  background-color: #262335;
+  padding: 0 0 0 0 !important;
+  margin: 0 0 0 0 !important;
+  overflow: "hidden";
+  height: 100%;
+
+  //   @media screen and (min-width: 575px) {
+  //     height: 100% !important;
+  //   }
+}
+
+.main-row {
+  @media screen and (min-width: 575px) {
+    height: 100% !important;
+  }
+}
+
+.fe-col {
+  background-color: #241b2f;
+  padding: 0.5rem;
+  height: auto;
+
+  @media screen and (min-width: 575px) {
+    height: 100% !important;
+  }
+}
+
+.editor-col {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @media screen and (min-width: 575px) {
+    height: 100% !important;
+  }
+}
+
+.outlet-container {
+  background-color: #262335;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 400px;
+}

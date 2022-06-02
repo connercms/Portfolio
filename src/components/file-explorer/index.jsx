@@ -1,97 +1,56 @@
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
-import './file-explorer.scss';
+import { faChevronDown, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import File from "./file";
+import "./file-explorer.scss";
+import Folder from "./folder";
+const items = require("./files.json");
 
-function File(props) {
-    const index = props.index || 1;
-    let resolved = useResolvedPath(props.href);
-    let match = useMatch({ path: resolved.pathname, end: true });
+function FileExplorer(props) {
+  return (
+    <>
+      <div className="d-flex justify-content-between align-items-center p-2">
+        <span className="text-secondary">
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            size="xs"
+            className="me-2"
+            color="#241b2f"
+          />
+          EXPLORER
+        </span>
 
-    const matchedStyle = match ? { backgroundColor: '#40394a' } : {};
-
-    return (
-        <Link className="link d-flex" style={{ paddingLeft: index * 16, ...matchedStyle }} active to={props.href}>{props.name}</Link>
-    );
-}
-
-function Folder(props) {
-    const index = props.index || 1;
-    return (
-        <div>
-            <div className="folder">
-                <span style={{ color: '#4fe4b8', marginLeft: index * 8 }}>{'>'} {props.name}</span>
-            </div>
-            {props.items.map(item => item.isFolder ?
-                <Folder key={item.name} index={index + 1} name={item.name} items={item.items} /> :
-                <File key={item.name} index={index} name={item.name} href={item.href} />)}
-        </div>
-    );
-}
-
-function FileExplorer() {
-    const items = [
-        {
-            isFolder: 1,
-            name: 'src',
-            items: [
-                {
-                    isFolder: 0,
-                    name: 'about.jsx',
-                    href: '/'
-                },
-                {
-                    isFolder: 0,
-                    name: 'work.jsx',
-                    href: '/work'
-                },
-                {
-                    isFolder: 1,
-                    name: 'pages',
-                    items: [
-                        {
-                            isFolder: 0,
-                            name: 'app.jsx',
-                            href: '/something-else'
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-    return (
-        <>
-            {items.map(item => item.isFolder ? <Folder key={item.name} name={item.name} items={item.items} /> : <File key={item.name} name={item.name} />)}
-        </>
-        // <ul>
-        //     <li>
-        //         <Link to="/">about.jsx</Link>
-        //     </li>
-        //     <li>
-        //         <Link to="/work">work.jsx</Link>
-        //     </li>
-        //     <li>
-        //         <ul>
-        //             <li>
-        //                 <Link to="/">about.jsx</Link>
-        //             </li>
-        //             <li>
-        //                 <Link to="/work">work.jsx</Link>
-        //             </li>
-        //             <li>
-        //                 <ul>
-        //                     <li>
-        //                         <Link to="/">about.jsx</Link>
-        //                     </li>
-        //                     <li>
-        //                         <Link to="/work">work.jsx</Link>
-        //                     </li>
-        //                 </ul>
-        //             </li>
-
-        //         </ul>
-        //     </li>
-
-        // </ul>
-    );
+        <FontAwesomeIcon
+          icon={faEllipsisH}
+          color="gray"
+          size="xs"
+          className="me-2"
+        />
+      </div>
+      <span className="d-block text-white px-2">
+        <FontAwesomeIcon icon={faChevronDown} size="xs" className="me-2" />
+        <span>PORTFOLIO</span>
+      </span>
+      {items.map((item) =>
+        item.isFolder ? (
+          <Folder
+            key={item.name}
+            name={item.name}
+            items={item.items}
+            files={props.files}
+            setFiles={props.setFiles}
+          />
+        ) : (
+          <File
+            key={item.name}
+            name={item.name}
+            href={item.href}
+            files={props.files}
+            setFiles={props.setFiles}
+          />
+        )
+      )}
+    </>
+  );
 }
 
 export default FileExplorer;
