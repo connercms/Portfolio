@@ -2,18 +2,8 @@
   background-color: #262335;
   padding: 0 0 0 0 !important;
   margin: 0 0 0 0 !important;
-  overflow: "hidden";
-  height: 100%;
-
-  //   @media screen and (min-width: 575px) {
-  //     height: 100% !important;
-  //   }
-}
-
-.main-row {
-  @media screen and (min-width: 575px) {
-    height: 100% !important;
-  }
+  height: 100vh;
+  overflow: hidden;
 }
 
 .fe-col {
@@ -22,25 +12,20 @@
   height: auto;
 
   @media screen and (min-width: 575px) {
-    height: 100% !important;
+    height: 100vh !important;
   }
 }
 
 .editor-col {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
-  @media screen and (min-width: 575px) {
-    height: 100% !important;
-  }
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .outlet-container {
-  background-color: #262335;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  min-height: 400px;
+  flex: 1;
+  background-color: #262335;
+  overflow-y: auto;
+  padding: 1rem;
 }

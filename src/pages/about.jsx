@@ -1,7 +1,48 @@
+import { Image } from "react-bootstrap";
+import portrait from "../assets/images/me.JPG";
+
 function About() {
   return (
     <>
-      <h2 className="text-white">About</h2>
+      <div className="d-flex align-items-center">
+        {/* <Image
+          src={portrait}
+          className="my-2"
+          style={{
+            height: 200,
+            width: 200,
+            borderRadius: 100,
+            filter: "grayscale(100%)",
+          }}
+        /> */}
+        <div className="d-flex flex-column p-2">
+          <h2>Conner Shannon</h2>
+          <h3>Full Stack Software Developer</h3>
+          <hr />
+        </div>
+        <hr />
+      </div>
+
+      <div>
+        <p>
+          Hi. My name is Conner Shannon. I am a full stack software developer
+          living in the Des Moines, IA area.
+        </p>
+        <p>
+          I have 7 years professional experience using numerous languages and
+          frameworks, from native mobile development, to front-end experiences
+          using the latest popular frameworks such as React or Angular, to
+          back-end architecture including REST APIs, database creation and
+          management, and more.
+        </p>
+        <p>
+          I have broad experience with both AWS and Azure cloud platforms, have
+          created numerous CI/CD workflows for projects using GitHub Actions,
+          AWS CodePipeline/CodeDeploy, and (to a lesser extent) Jenkins, and am
+          well versed in using multiple source control platforms and performing
+          technical code reviews
+        </p>
+      </div>
       <p className="text-white" style={{ fontSize: 16 }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis

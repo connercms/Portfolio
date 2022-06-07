@@ -1,8 +1,9 @@
 function Contact() {
   return (
-    <div>
-      <h2 className="text-white">Contact</h2>
-    </div>
+    <>
+      <h1>Contact</h1>
+      <p>Placeholder contact section</p>
+    </>
   );
 }
 

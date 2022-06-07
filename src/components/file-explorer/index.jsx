@@ -26,10 +26,10 @@ function FileExplorer(props) {
           className="me-2"
         />
       </div>
-      <span className="d-block text-white px-2">
+      {/* <span className="d-block text-white px-2">
         <FontAwesomeIcon icon={faChevronDown} size="xs" className="me-2" />
         <span>PORTFOLIO</span>
-      </span>
+      </span> */}
       {items.map((item) =>
         item.isFolder ? (
           <Folder
